@@ -1,8 +1,8 @@
 
 all:
-	mkdir build/
-	mkdir source/
-	mkdir release/
+	mkdir -p build/
+	mkdir -p source/
+	mkdir -p release/
 	curl -L https://github.com/assimp/assimp/archive/v4.0.1.tar.gz | tar xz -C source/ --strip-components 1
 	cd build/ && cmake \
 		-DCMAKE_BUILD_TYPE=Release \
@@ -13,5 +13,5 @@ all:
 		-DASSIMP_BUILD_FBX_IMPORTER=ON \
 		../source
 	make -C build/ -j8
-	cp -f build/code/*.dylib build/code/*.dylib.* release/
+	find . -name '*.so' -o -name '*.so.*' -exec cp -f \{\} release/ \;
 
