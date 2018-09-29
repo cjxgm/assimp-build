@@ -13,5 +13,5 @@ all:
 		-DGLFW_INSTALL=OFF \
 		../source
 	make -C build/ -j8
-	find . \( -name '*.so' -o -name '*.so.*' -o -name '*.dylib' \) -exec cp -f \{\} release/ \;
+	find build/ \( -name '*.so' -o -name '*.so.*' -o -name '*.dylib' \) -exec cp -f \{\} release/ \;
 
