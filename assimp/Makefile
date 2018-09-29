@@ -13,5 +13,5 @@ all:
 		-DASSIMP_BUILD_FBX_IMPORTER=ON \
 		../source
 	make -C build/ -j8
-	find . -name '*.so' -o -name '*.so.*' -o -name '*.dylib' -exec cp -f \{\} release/ \;
+	find . \( -name '*.so' -o -name '*.so.*' -o -name '*.dylib' \) -exec cp -f \{\} release/ \;
 
