@@ -11,6 +11,9 @@ matrix:
         - os: osx
           osx_image: xcode8
           env: MATRIX_PROJECT="glfw"
+        - os: osx
+          osx_image: xcode8
+          env: MATRIX_PROJECT="glew"
 
 script:
     - make -C $MATRIX_PROJECT
