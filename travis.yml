@@ -1,0 +1,19 @@
+language: cpp
+
+matrix:
+    include:
+        - os: osx
+          osx_image: xcode8
+          env: MATRIX_PROJECT="assimp"
+
+script:
+    - make -C $MATRIX_PROJECT
+
+deploy:
+    provider: releases
+    api_key: $GITHUB_API_TOKEN
+    overwrite: true
+    skip_cleanup: true
+    file_glob: true
+    file: $MATRIX_PROJECT/release/*
+
