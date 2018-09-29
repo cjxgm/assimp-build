@@ -8,5 +8,5 @@ all:
 		-DCMAKE_BUILD_TYPE=Release \
 		../source/build/cmake
 	make -C build/ -j8 glew
-	find build/ \( -name '*.so' -o -name '*.so.*' -o -name '*.dylib' \) -exec cp -f \{\} release/ \;
+	find build/ -type f \( -name '*.so' -o -name '*.so.*' -o -name '*.dylib' \) -exec cp -f \{\} release/ \;
 
