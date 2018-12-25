@@ -11,6 +11,7 @@ all:
 		-DASSIMP_BUILD_ALL_IMPORTERS_BY_DEFAULT=OFF \
 		-DASSIMP_BUILD_OBJ_IMPORTER=ON \
 		-DASSIMP_BUILD_FBX_IMPORTER=ON \
+		-DASSIMP_BUILD_GLTF_IMPORTER=ON \
 		../source
 	make -C build/ -j8
 	find build/ -type f \( -name '*.so' -o -name '*.so.*' -o -name '*.dylib' \) -exec cp -f \{\} release/ \;
