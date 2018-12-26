@@ -3,7 +3,7 @@ all:
 	mkdir -p build/
 	mkdir -p source/
 	mkdir -p release/
-	curl -L https://github.com/assimp/assimp/archive/v4.1.0.tar.gz | tar xz -C source/ --strip-components 1
+	git clone https://github.com/assimp/assimp.git source/ --depth 1 --branch 106bf19
 	cd build/ && cmake \
 		-DCMAKE_BUILD_TYPE=Release \
 		-DASSIMP_BUILD_ASSIMP_TOOLS=OFF \
