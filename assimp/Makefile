@@ -3,7 +3,7 @@ all:
 	mkdir -p build/
 	mkdir -p source/
 	mkdir -p release/
-	git clone https://github.com/assimp/assimp.git source/ --depth 1 --branch 106bf19
+	git clone https://github.com/assimp/assimp.git source/ --depth 1 --branch v5.0.1
 	cd build/ && cmake \
 		-DCMAKE_BUILD_TYPE=Release \
 		-DASSIMP_BUILD_ASSIMP_TOOLS=OFF \
