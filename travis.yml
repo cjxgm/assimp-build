@@ -3,26 +3,30 @@ branches:
     only:
         - master
 
-matrix:
-    include:
-        - os: osx
-          osx_image: xcode8
-          env: MATRIX_PROJECT="assimp"
-        - os: osx
-          osx_image: xcode8
-          env: MATRIX_PROJECT="glfw"
-        - os: osx
-          osx_image: xcode8
-          env: MATRIX_PROJECT="glew"
+env:
+    - MATRIX_PROJECT="assimp"
+    - MATRIX_PROJECT="glfw"
+    - MATRIX_PROJECT="glew"
+
+os:
+    - osx
+    - linux
+    - windows
+
+osx_image: xcode12
+dist: bionic
+
+services:
+    - docker
 
 script:
     - make -C $MATRIX_PROJECT
 
 deploy:
     provider: releases
-    api_key: $GITHUB_API_TOKEN
+    token: $GITHUB_API_TOKEN
     overwrite: true
-    skip_cleanup: true
+    cleanup: false
     file_glob: true
     file: $MATRIX_PROJECT/release/*
     on:
